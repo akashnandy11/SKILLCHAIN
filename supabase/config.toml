@@ -1,0 +1,7 @@
+project_id = "shnawhdsgnrszjrobwwy"
+
+[functions.analyze-code]
+verify_jwt = false
+
+[functions.mint-nft]
+verify_jwt = true

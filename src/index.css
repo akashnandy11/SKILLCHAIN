@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Cyber Dark Theme - Space Navy Background */
+    --background: 220 40% 4%;
+    --foreground: 210 40% 98%;
+
+    /* Cards with glassmorphism */
+    --card: 220 35% 8%;
+    --card-foreground: 210 40% 98%;
+
+    /* Popovers */
+    --popover: 220 35% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Neon Purple Primary */
+    --primary: 270 70% 65%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 270 80% 75%;
+
+    /* Electric Cyan Accent */
+    --accent: 190 95% 55%;
+    --accent-foreground: 220 40% 4%;
+    --accent-glow: 190 100% 65%;
+
+    /* Muted states */
+    --muted: 220 30% 12%;
+    --muted-foreground: 210 20% 60%;
+
+    /* Secondary - Deep purple */
+    --secondary: 260 50% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Destructive */
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders with subtle glow */
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 270 70% 65%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(270 70% 65%), hsl(190 95% 55%));
+    --gradient-hero: linear-gradient(180deg, hsl(220 40% 4%) 0%, hsl(260 50% 8%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 35% 8% / 0.8), hsl(260 40% 12% / 0.8));
+    
+    /* Shadows with neon glow */
+    --shadow-glow: 0 0 40px hsl(270 70% 65% / 0.3);
+    --shadow-glow-accent: 0 0 40px hsl(190 95% 55% / 0.3);
+    --shadow-card: 0 10px 40px hsl(220 40% 2% / 0.5);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
