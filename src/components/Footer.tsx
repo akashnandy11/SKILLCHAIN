@@ -1,6 +1,11 @@
 import { Code2, Github, Twitter, MessageCircle } from "lucide-react";
 
 const Footer = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.querySelector(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <footer className="border-t border-border/50 bg-card/30 backdrop-blur-sm">
       <div className="container mx-auto px-4 py-12">
@@ -35,10 +40,26 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Product</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#features" className="hover:text-primary transition-colors cursor-pointer">Features</a></li>
-              <li><a href="#how-it-works" className="hover:text-primary transition-colors cursor-pointer">How It Works</a></li>
-              <li><a href="#leaderboard" className="hover:text-primary transition-colors cursor-pointer">Leaderboard</a></li>
-              <li><a href="#about" className="hover:text-primary transition-colors cursor-pointer">About</a></li>
+              <li>
+                <button onClick={() => scrollToSection('#features')} className="hover:text-primary transition-colors">
+                  Features
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollToSection('#how-it-works')} className="hover:text-primary transition-colors">
+                  How It Works
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollToSection('#leaderboard')} className="hover:text-primary transition-colors">
+                  Leaderboard
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollToSection('#about')} className="hover:text-primary transition-colors">
+                  About
+                </button>
+              </li>
             </ul>
           </div>
 

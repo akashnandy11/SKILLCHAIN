@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Github, Rocket } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const CTA = () => {
+  const navigate = useNavigate();
+  
   return (
     <section className="py-24 relative">
       {/* Gradient background */}
@@ -24,12 +27,22 @@ const CTA = () => {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button size="lg" variant="hero" className="group" onClick={() => window.location.href = '/auth'}>
+            <Button 
+              size="lg" 
+              variant="hero" 
+              className="group w-full sm:w-auto" 
+              onClick={() => navigate('/auth')}
+            >
               <Github className="w-5 h-5" />
               Start Verification
               <Rocket className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="w-full sm:w-auto"
+              onClick={() => document.querySelector('#how-it-works')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+            >
               Watch Demo
             </Button>
           </div>

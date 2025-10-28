@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles, Github, Zap } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Animated background */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -46,8 +49,8 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="hero" 
-              className="group hover:scale-105 active:scale-95 transition-all" 
-              onClick={() => window.location.href = '/auth'}
+              className="group hover:scale-105 active:scale-95 transition-all w-full sm:w-auto" 
+              onClick={() => navigate('/auth')}
             >
               <Github className="w-5 h-5 group-hover:rotate-12 transition-transform" />
               Get Started
@@ -56,8 +59,8 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="hover:scale-105 active:scale-95 transition-all"
-              onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+              className="hover:scale-105 active:scale-95 transition-all w-full sm:w-auto"
+              onClick={() => document.querySelector('#how-it-works')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
             >
               See How It Works
             </Button>
