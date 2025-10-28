@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import Features from "@/components/Features";
+import Leaderboard from "@/components/Leaderboard";
 import NFTShowcase from "@/components/NFTShowcase";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -19,8 +20,9 @@ const Index = () => {
           <Features />
         </div>
         <div id="leaderboard">
-          <NFTShowcase />
+          <Leaderboard />
         </div>
+        <NFTShowcase />
         <div id="about">
           <CTA />
         </div>
