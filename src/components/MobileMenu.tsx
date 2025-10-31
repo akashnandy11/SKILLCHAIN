@@ -93,8 +93,7 @@ const MobileMenu = () => {
               Sign In
             </Button>
             <Button 
-              variant="cyber" 
-              className="w-full justify-start" 
+              className="w-full justify-start bg-gradient-to-r from-primary to-accent hover:opacity-90" 
               onClick={() => {
                 setOpen(false);
                 navigate('/auth');

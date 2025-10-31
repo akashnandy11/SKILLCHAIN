@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Code2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import MobileMenu from "./MobileMenu";
+import ThemeToggle from "./ThemeToggle";
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -28,7 +30,12 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-lg">
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-lg"
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -74,6 +81,7 @@ const Navigation = () => {
 
           {/* CTA Buttons */}
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <Button 
               variant="ghost" 
               size="sm" 
@@ -83,9 +91,8 @@ const Navigation = () => {
               Sign In
             </Button>
             <Button 
-              variant="cyber" 
               size="sm" 
-              className="hidden md:flex"
+              className="hidden md:flex bg-gradient-to-r from-primary to-accent hover:opacity-90"
               onClick={() => navigate('/auth')}
             >
               Get Started
@@ -94,7 +101,7 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

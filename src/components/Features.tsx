@@ -1,5 +1,6 @@
 import { Sparkles, TrendingUp, Shield, Users, Zap, Trophy } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -42,7 +43,13 @@ const Features = () => {
       
       <div className="container mx-auto px-4 relative">
         {/* Section header */}
-        <div className="text-center mb-16 space-y-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 space-y-4"
+        >
           <h2 className="text-4xl md:text-5xl font-bold">
             <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
               Powerful Features
@@ -51,16 +58,21 @@ const Features = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Everything you need to prove, grow, and showcase your coding expertise
           </p>
-        </div>
+        </motion.div>
 
         {/* Features grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {features.map((feature, index) => (
-            <Card 
+            <motion.div
               key={index}
-              className="p-6 bg-card/50 backdrop-blur-sm border-border hover:border-accent/50 transition-all group hover:shadow-[0_0_30px_hsl(var(--accent)/0.2)] cursor-pointer hover:scale-105 animate-slide-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
             >
+              <Card 
+                className="p-6 bg-card/50 backdrop-blur-sm border-border hover:border-accent/50 transition-all group hover:shadow-[0_0_30px_hsl(var(--accent)/0.2)] cursor-pointer hover:scale-105 h-full"
+              >
               {/* Icon */}
               <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all shadow-[0_0_15px_hsl(var(--accent)/0.2)]">
                 <feature.icon className="w-6 h-6 text-accent" />
@@ -74,6 +86,7 @@ const Features = () => {
                 {feature.description}
               </p>
             </Card>
+            </motion.div>
           ))}
         </div>
       </div>

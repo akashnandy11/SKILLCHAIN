@@ -1,5 +1,7 @@
 import { GitBranch, Brain, Award } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
 
 const steps = [
   {
@@ -27,7 +29,13 @@ const HowItWorks = () => {
     <section className="py-24 relative">
       <div className="container mx-auto px-4">
         {/* Section header */}
-        <div className="text-center mb-16 space-y-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 space-y-4"
+        >
           <h2 className="text-4xl md:text-5xl font-bold">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               How It Works
@@ -36,14 +44,20 @@ const HowItWorks = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Three simple steps to verify your skills and earn blockchain credentials
           </p>
-        </div>
+        </motion.div>
 
         {/* Steps grid */}
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {steps.map((step, index) => (
-            <Card 
+            <motion.div
               key={index}
-              className="relative p-8 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all group hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)]"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2, duration: 0.6 }}
+            >
+              <Card
+              className="relative p-8 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all group hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] h-full"
             >
               {/* Step number */}
               <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 text-primary font-bold text-lg">
@@ -66,6 +80,7 @@ const HowItWorks = () => {
                 <div className="hidden md:block absolute top-12 -right-8 w-16 h-0.5 bg-gradient-to-r from-primary/50 to-transparent"></div>
               )}
             </Card>
+            </motion.div>
           ))}
         </div>
       </div>

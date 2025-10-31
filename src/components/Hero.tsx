@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles, Github, Zap } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
@@ -24,32 +25,56 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto px-4 py-20 animate-slide-up">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
+      <div className="container relative z-10 mx-auto px-4 py-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto text-center space-y-8"
+        >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-card/50 backdrop-blur-sm">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-card/50 backdrop-blur-sm"
+          >
             <Sparkles className="w-4 h-4 text-primary animate-glow" />
             <span className="text-sm font-medium">Revolutionizing Developer Credentials</span>
-          </div>
+          </motion.div>
 
           {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-5xl md:text-7xl font-bold leading-tight"
+          >
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-200 animate-gradient-shift">
               Your Code is Your Credential
             </span>
-          </h1>
+          </motion.h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
+          >
             AI-verified skills meet blockchain trust. Mint evolving NFT credentials that prove your real coding abilities.
-          </p>
+          </motion.p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+          >
             <Button 
               size="lg" 
-              variant="hero" 
-              className="group hover:scale-105 active:scale-95 transition-all w-full sm:w-auto" 
+              className="group hover:scale-105 active:scale-95 transition-all w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90" 
               onClick={() => navigate('/auth')}
             >
               <Github className="w-5 h-5 group-hover:rotate-12 transition-transform" />
@@ -70,10 +95,15 @@ const Hero = () => {
             >
               See How It Works
             </Button>
-          </div>
+          </motion.div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto"
+          >
             <div className="space-y-2">
               <div className="text-3xl md:text-4xl font-bold text-primary">10K+</div>
               <div className="text-sm text-muted-foreground">Developers Verified</div>
@@ -86,8 +116,8 @@ const Hero = () => {
               <div className="text-3xl md:text-4xl font-bold text-primary">99.9%</div>
               <div className="text-sm text-muted-foreground">Verification Accuracy</div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Bottom gradient fade */}

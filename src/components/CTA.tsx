@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Github, Rocket } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const CTA = () => {
   const navigate = useNavigate();
@@ -11,7 +12,13 @@ const CTA = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-transparent"></div>
       
       <div className="container mx-auto px-4 relative">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto text-center space-y-8"
+        >
           {/* Main content */}
           <div className="space-y-6">
             <h2 className="text-4xl md:text-6xl font-bold">
@@ -29,8 +36,7 @@ const CTA = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Button 
               size="lg" 
-              variant="hero" 
-              className="group w-full sm:w-auto" 
+              className="group w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90" 
               onClick={() => navigate('/auth')}
             >
               <Github className="w-5 h-5" />
@@ -57,7 +63,7 @@ const CTA = () => {
           <div className="pt-8 text-sm text-muted-foreground">
             <p>Powered by OpenAI • Secured by Polygon • Trusted by 10,000+ developers</p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

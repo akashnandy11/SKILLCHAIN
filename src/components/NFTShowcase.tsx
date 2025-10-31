@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Zap } from "lucide-react";
+import { motion } from "framer-motion";
 import nftPreview from "@/assets/nft-preview.jpg";
 
 const NFTShowcase = () => {
@@ -15,13 +16,20 @@ const NFTShowcase = () => {
       <div className="container mx-auto px-4 relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           {/* NFT Preview Card */}
-          <div className="relative group">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative group"
+          >
             <Card className="relative overflow-hidden bg-card/50 backdrop-blur-sm border-border p-8 shadow-[0_0_50px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_80px_hsl(var(--primary)/0.5)] transition-all">
               {/* NFT Image */}
               <div className="relative aspect-square rounded-xl overflow-hidden mb-6 border border-primary/30">
                 <img 
                   src={nftPreview} 
-                  alt="Skill NFT Preview" 
+                  alt="Skill NFT Preview - Blockchain verified developer credentials" 
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
@@ -74,10 +82,16 @@ const NFTShowcase = () => {
 
             {/* Glow effect */}
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl -z-10 opacity-50 group-hover:opacity-75 transition-opacity"></div>
-          </div>
+          </motion.div>
 
           {/* Content */}
-          <div className="space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
+          >
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -126,7 +140,7 @@ const NFTShowcase = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

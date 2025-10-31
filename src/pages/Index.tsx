@@ -6,10 +6,12 @@ import Leaderboard from "@/components/Leaderboard";
 import NFTShowcase from "@/components/NFTShowcase";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <ScrollProgress />
       <Navigation />
       <main>
         <Hero />
