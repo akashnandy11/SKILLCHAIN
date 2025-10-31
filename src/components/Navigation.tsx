@@ -7,8 +7,24 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.querySelector(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Check if we're already on home page
+    if (window.location.pathname === '/') {
+      const element = document.querySelector(sectionId);
+      if (element) {
+        const offsetTop = element.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+      }
+    } else {
+      // Navigate to home first, then scroll
+      navigate('/');
+      setTimeout(() => {
+        const element = document.querySelector(sectionId);
+        if (element) {
+          const offsetTop = element.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
+      }, 300);
+    }
   };
 
   return (

@@ -20,11 +20,27 @@ const MobileMenu = () => {
     setOpen(false);
     
     if (href.startsWith('#')) {
-      // Smooth scroll to section
-      setTimeout(() => {
-        const element = document.querySelector(href);
-        element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
+      // Check if we're already on home page
+      if (window.location.pathname === '/') {
+        // Already on home, just scroll
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          if (element) {
+            const offsetTop = element.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // Navigate to home first, then scroll
+        navigate('/');
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          if (element) {
+            const offsetTop = element.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+          }
+        }, 300);
+      }
     } else {
       // Navigate to route
       navigate(href);

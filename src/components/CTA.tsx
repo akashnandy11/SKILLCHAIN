@@ -41,7 +41,13 @@ const CTA = () => {
               size="lg" 
               variant="outline" 
               className="w-full sm:w-auto"
-              onClick={() => document.querySelector('#how-it-works')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              onClick={() => {
+                const element = document.querySelector('#how-it-works');
+                if (element) {
+                  const offsetTop = element.getBoundingClientRect().top + window.scrollY - 80;
+                  window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+              }}
             >
               Watch Demo
             </Button>

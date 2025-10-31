@@ -3,7 +3,10 @@ import { Code2, Github, Twitter, MessageCircle } from "lucide-react";
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.querySelector(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (element) {
+      const offsetTop = element.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
   };
 
   return (
