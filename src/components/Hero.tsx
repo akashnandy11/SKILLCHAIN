@@ -75,11 +75,20 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="group hover:scale-105 active:scale-95 transition-all w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90" 
+              onClick={() => navigate('/analyze')}
+            >
+              <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              Analyze My Profile
+              <Zap className="w-4 h-4 group-hover:scale-125 transition-transform" />
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="hover:scale-105 active:scale-95 transition-all w-full sm:w-auto"
               onClick={() => navigate('/auth')}
             >
               <Github className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-              Get Started
-              <Zap className="w-4 h-4 group-hover:scale-125 transition-transform" />
+              Sign Up Free
             </Button>
             <Button 
               size="lg" 

@@ -14,6 +14,75 @@ export type Database = {
   }
   public: {
     Tables: {
+      certifications: {
+        Row: {
+          created_at: string | null
+          file_url: string | null
+          id: string
+          issue_date: string | null
+          issuer: string | null
+          name: string
+          user_id: string
+          verification_hash: string | null
+          verified: boolean | null
+        }
+        Insert: {
+          created_at?: string | null
+          file_url?: string | null
+          id?: string
+          issue_date?: string | null
+          issuer?: string | null
+          name: string
+          user_id: string
+          verification_hash?: string | null
+          verified?: boolean | null
+        }
+        Update: {
+          created_at?: string | null
+          file_url?: string | null
+          id?: string
+          issue_date?: string | null
+          issuer?: string | null
+          name?: string
+          user_id?: string
+          verification_hash?: string | null
+          verified?: boolean | null
+        }
+        Relationships: []
+      }
+      mock_interviews: {
+        Row: {
+          ai_feedback: string | null
+          answer: string
+          category: string | null
+          created_at: string | null
+          id: string
+          question: string
+          score: number | null
+          user_id: string
+        }
+        Insert: {
+          ai_feedback?: string | null
+          answer: string
+          category?: string | null
+          created_at?: string | null
+          id?: string
+          question: string
+          score?: number | null
+          user_id: string
+        }
+        Update: {
+          ai_feedback?: string | null
+          answer?: string
+          category?: string | null
+          created_at?: string | null
+          id?: string
+          question?: string
+          score?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       nft_credentials: {
         Row: {
           blockchain_tx_hash: string | null
@@ -245,6 +314,57 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      user_analysis: {
+        Row: {
+          certifications: Json | null
+          coding_stats: Json | null
+          created_at: string | null
+          feedback: string | null
+          github_id: string | null
+          id: string
+          is_public: boolean | null
+          linkedin_url: string | null
+          progress: Json | null
+          recommendations: Json | null
+          resume_score: number | null
+          updated_at: string | null
+          user_id: string
+          verified: boolean | null
+        }
+        Insert: {
+          certifications?: Json | null
+          coding_stats?: Json | null
+          created_at?: string | null
+          feedback?: string | null
+          github_id?: string | null
+          id?: string
+          is_public?: boolean | null
+          linkedin_url?: string | null
+          progress?: Json | null
+          recommendations?: Json | null
+          resume_score?: number | null
+          updated_at?: string | null
+          user_id: string
+          verified?: boolean | null
+        }
+        Update: {
+          certifications?: Json | null
+          coding_stats?: Json | null
+          created_at?: string | null
+          feedback?: string | null
+          github_id?: string | null
+          id?: string
+          is_public?: boolean | null
+          linkedin_url?: string | null
+          progress?: Json | null
+          recommendations?: Json | null
+          resume_score?: number | null
+          updated_at?: string | null
+          user_id?: string
+          verified?: boolean | null
+        }
+        Relationships: []
       }
       xp_transactions: {
         Row: {
